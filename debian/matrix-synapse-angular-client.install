@@ -1,0 +1,2 @@
+syweb/webclient/* usr/share/matrix-synapse-angular-client/
+debian/webclient.yaml etc/matrix-synapse/conf.d/
