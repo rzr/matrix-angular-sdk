@@ -1,0 +1,11 @@
+matrix-synapse-angular-client (0.6.6-2) trusty; urgency=medium
+
+  * Fix config bug.
+
+ -- Erik Johnston <erikj@matrix.org>  Wed, 26 Aug 2015 17:08:43 +0100
+
+matrix-synapse-angular-client (0.6.6-1) trusty; urgency=low
+
+  * Initial release
+
+ -- Erik Johnston <erikj@matrix.org>  Wed, 26 Aug 2015 15:26:01 +0100

@@ -479,7 +479,6 @@ input.error {
     color: #888;
     font-size: 12px;
     overflow: hidden;
-    max-width: 400px;
     padding-bottom: 5px;
     border-bottom: 1px #ddd solid;
 }
@@ -1014,6 +1013,7 @@ input.error {
 
 .pushsection {
     transition: max-height linear 0.5s, opacity linear 0.5s;
+    max-height: 1500px;
     overflow: hidden;
 }
 

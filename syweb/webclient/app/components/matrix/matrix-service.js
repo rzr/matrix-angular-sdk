@@ -77,10 +77,7 @@ function($http, $window, $timeout, $q) {
         $window.matrixcs.request(function(opts, callback) {
             // return a promise rather than use callbacks
             return doInternalRequest(opts.uri, opts.method, opts.qs, opts.body, undefined, {
-                // this needs to be larger than we expect the longest request will be
-                // to avoid knifing the connection early whilst the server is still
-                // processing the request
-                timeout: (1000 * 60 * 2)
+                timeout: 35000
             });
         });
 
@@ -233,7 +230,7 @@ function($http, $window, $timeout, $q) {
     
     // NB. Despite it's name, this is used only for registering, not logging in.
     var doRegisterLogin = function(path, data, params, loginType, sessionId, userName, password, threepidCreds, captchaResponse) {
-        var data = angular.extend({}, data);
+        var data = $.extend({}, data)
         var auth = {};
         if (loginType === "m.login.recaptcha") {
             auth = {
@@ -588,10 +585,6 @@ function($http, $window, $timeout, $q) {
             // TODO We should be checking to make sure the client can support
             // logging in to this HS, else use the fallback.
             return client.loginWithPassword(userId, password);
-        },
-
-        loginSAML2: function(relayState) {
-            return client.loginWithSAML2(relayState);
         },
 
         // hit the Identity Server for a 3PID request.

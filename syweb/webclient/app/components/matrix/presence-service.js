@@ -21,8 +21,8 @@
  * Any state change will be sent to the Home Server.
  */
 angular.module('mPresence', [])
-.service('mPresence', ['$document', 'matrixService', '$interval',
-function ($document, matrixService, $interval) {
+.service('mPresence', ['$timeout', '$document', 'matrixService', 
+function ($timeout, $document, matrixService) {
 
     // Time in ms after that a user is considered as unavailable/away
     var UNAVAILABLE_TIME = 3 * 60000; // 3 mins
@@ -30,11 +30,9 @@ function ($document, matrixService, $interval) {
     // The current presence state
     var state = undefined;
 
-    var self = this;
+    var self =this;
     var timer;
     
-    this.UNAVAILABLE_TIME = UNAVAILABLE_TIME; // Expose for unit testing
-
     /**
      * Start listening the user activity to evaluate his presence state.
      * Any state change will be sent to the Home Server.
@@ -54,7 +52,7 @@ function ($document, matrixService, $interval) {
      */
     this.stop = function() {
         if (timer) {
-            $interval.cancel(timer);
+            $timeout.cancel(timer);
             timer = undefined;
         }
         state = undefined;
@@ -107,8 +105,8 @@ function ($document, matrixService, $interval) {
         self.setState(matrixService.presence.online);
         
         // Re-arm the timer
-        $interval.cancel(timer);
-        timer = $interval(onUnvailableTimerFire, UNAVAILABLE_TIME, 1);
+        $timeout.cancel(timer);
+        timer = $timeout(onUnvailableTimerFire, UNAVAILABLE_TIME);
     }    
 
 }]);

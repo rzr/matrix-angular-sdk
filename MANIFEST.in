@@ -1,4 +1,1 @@
 recursive-include syweb/webclient *
-include *.json
-include *.rst
-include LICENSE
