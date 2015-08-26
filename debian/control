@@ -1,0 +1,15 @@
+Source: matrix-synapse-angular-client
+Section: misc
+Priority: optional
+Maintainer: Erik Johnston <erikj@matrix.org>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.4
+Homepage: https://github.com/matrix-org/matrix-angular-sdk
+
+Package: matrix-synapse-angular-client
+Architecture: all
+Depends: ${misc:Depends}
+Provides: matrix-synapse-webclient
+Conflicts: matrix-synapse-webclient
+Description: <insert up to 60 chars description>
+ <insert long description, indented with spaces>
