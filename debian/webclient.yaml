@@ -1,2 +1,2 @@
-web_client: True,
-web_client_location: /usr/share/matrix-synapse-angular-client/,
+web_client: True
+web_client_location: /usr/share/matrix-synapse-angular-client/
